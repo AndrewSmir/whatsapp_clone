@@ -2,7 +2,7 @@ import React from 'react'
 import SidebarHeader from "./SidebarHeader";
 import SidebarSearch from "./SidebarSearch";
 
-const SideBar = props => {
+const SidebarContainer = props => {
     return (
         <div className='sidebar'>
             <SidebarHeader/>
@@ -15,4 +15,4 @@ const SideBar = props => {
     )
 }
 
-export default SideBar
+export default SidebarContainer
