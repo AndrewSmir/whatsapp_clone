@@ -1,16 +1,14 @@
 import React from 'react'
 import SidebarHeader from "./SidebarHeader";
 import SidebarSearch from "./SidebarSearch";
+import SidebarChats from "./SidebarChats";
 
-const SidebarContainer = props => {
+const SidebarContainer = () => {
     return (
         <div className='sidebar'>
             <SidebarHeader/>
             <SidebarSearch/>
-
-            <div className='sidebar__chats'>
-
-            </div>
+            <SidebarChats/>
         </div>
     )
 }

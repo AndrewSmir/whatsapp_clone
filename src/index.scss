@@ -92,6 +92,35 @@ code {
 
 }
 
+.sidebar__chats {
+  display: flex;
+  flex-direction: column;
+  flex:1;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.sidebar__chatsItem {
+  display: flex;
+  padding: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-bottom: 1px solid #f6f6f6;
+
+  h2{
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+}
+
+.sidebar__chatsItem:hover{
+  background-color: #ebebeb;
+}
+
+.sidebar__chatsItem__info{
+  margin-left: 15px;
+}
+
 .chats {
   flex: 0.65;
   background-color: antiquewhite;
