@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {Avatar} from "@material-ui/core";
 
 const SidebarChatsItem = props => {
-
-    const {addNewChat} = props
+    const {addNewChat, name} = props
 
     const [randomNum, setRandomNum] = useState(null)
 
@@ -23,7 +22,7 @@ const SidebarChatsItem = props => {
         <div className='sidebar__chatsItem'>
             <Avatar src={`https://avatars.dicebear.com/api/human/${randomNum}.svg`}/>
             <div className="sidebar__chatsItem__info">
-                <h2>Room name</h2>
+                <h2>{name}</h2>
                 <p>Last message...</p>
             </div>
         </div>

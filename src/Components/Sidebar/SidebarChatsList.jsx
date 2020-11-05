@@ -1,19 +1,16 @@
 import React from 'react'
 import SidebarChatsItem from "./SidebarChatsItem";
 
-const SidebarChatsList = () => {
+const SidebarChatsList = (props) => {
+
+    const chatsList = props.chatsList.map(chat => (
+        <SidebarChatsItem key={chat.id} name={chat.data.name}/>
+    ))
 
     return (
         <div className='sidebar__chats'>
             <SidebarChatsItem addNewChat={true}/>
-            <SidebarChatsItem/>
-            <SidebarChatsItem/>
-            <SidebarChatsItem/>
-            <SidebarChatsItem/>
-            <SidebarChatsItem/>
-            <SidebarChatsItem/>
-            <SidebarChatsItem/>
-            <SidebarChatsItem/>
+            {chatsList}
         </div>
     )
 }
