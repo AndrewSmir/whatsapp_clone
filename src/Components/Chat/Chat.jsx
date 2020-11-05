@@ -2,13 +2,30 @@ import React, {useEffect, useState} from 'react'
 import {Avatar, IconButton} from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import {AttachFile, SearchOutlined} from "@material-ui/icons";
+import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+import MicIcon from "@material-ui/icons/Mic";
 
 const Chat = () => {
     const [randomNum, setRandomNum] = useState(null)
+    const [inputValue, setInputValue] = useState("")
 
     useEffect(() => {
         setRandomNum(Math.floor(Math.random() * 10000))
     }, [])
+
+    const setNewMessageText = e => {
+        if (e.keyCode === 13) {
+            sendMessage(e)
+            setInputValue('')
+        } else {
+            setInputValue(e.target.value)
+        }
+    }
+
+    const sendMessage = e => {
+        e.preventDefault()
+        alert('send')
+    }
 
     return (
         <div className='chat'>
@@ -46,7 +63,17 @@ const Chat = () => {
                 </p>
             </div>
             <div className="chat__footer">
-                
+                <IconButton>
+                    <InsertEmoticonIcon/>
+                </IconButton>
+                <form onSubmit={sendMessage}>
+                    <input type="text" placeholder='Please enter your message' value={inputValue}
+                           onChange={setNewMessageText} onKeyDown={setNewMessageText}/>
+                    <button type='submit'>Send a message</button>
+                </form>
+                <IconButton>
+                    <MicIcon/>
+                </IconButton>
             </div>
         </div>
     )
