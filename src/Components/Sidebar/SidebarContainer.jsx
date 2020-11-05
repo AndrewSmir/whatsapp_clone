@@ -1,14 +1,14 @@
 import React from 'react'
 import SidebarHeader from "./SidebarHeader";
 import SidebarSearch from "./SidebarSearch";
-import SidebarChats from "./SidebarChats";
+import SidebarChatsList from "./SidebarChatsList";
 
 const SidebarContainer = () => {
     return (
         <div className='sidebar'>
             <SidebarHeader/>
             <SidebarSearch/>
-            <SidebarChats/>
+            <SidebarChatsList/>
         </div>
     )
 }

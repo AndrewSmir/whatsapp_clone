@@ -1,7 +1,7 @@
 import React from 'react'
 import SidebarChatsItem from "./SidebarChatsItem";
 
-const SidebarChats = () => {
+const SidebarChatsList = () => {
 
     return (
         <div className='sidebar__chats'>
@@ -18,4 +18,4 @@ const SidebarChats = () => {
     )
 }
 
-export default SidebarChats
+export default SidebarChatsList
