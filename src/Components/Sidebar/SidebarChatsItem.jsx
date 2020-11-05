@@ -28,7 +28,7 @@ const SidebarChatsItem = props => {
             </div>
         </div>
     ) : (
-        <div className="sidebar__chatsItem" onClick={()=>createNewChat}>
+        <div className="sidebar__chatsItem" onClick={()=>createNewChat()}>
             <h2>Add new Chat</h2>
         </div>
     )
