@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {Avatar} from "@material-ui/core";
 
 const SidebarChatsItem = props => {
-    const {addNewChat, name} = props
+    const {addNewChat, name, addNewRoom} = props
 
     const [randomNum, setRandomNum] = useState(null)
 
@@ -11,10 +11,10 @@ const SidebarChatsItem = props => {
     }, [])
 
     const createNewChat = () => {
-        const roomName = prompt('Please enter name for chat')
+        const roomName = prompt('Please enter name for chat room')
 
         if (roomName) {
-
+            addNewRoom(roomName)
         }
     }
 

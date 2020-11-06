@@ -40,3 +40,9 @@ export const getChatsList = () => async dispatch => {
     dispatch(setChatsList(chatsList))
 }
 
+export const addNewRoom = (roomName) => dispatch => {
+    db.collection('rooms').add({
+        name: roomName
+    }).then(()=>dispatch(getChatsList()))
+}
+
