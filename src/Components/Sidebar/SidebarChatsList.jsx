@@ -1,13 +1,15 @@
 import React from 'react'
 import SidebarChatsItem from "./SidebarChatsItem";
-import {addNewRoom} from "../../redux/chats-reducer";
+import {NavLink} from "react-router-dom";
 
 const SidebarChatsList = (props) => {
 
     const {addNewRoom} = props
 
     const chatsList = props.chatsList.map(chat => (
-        <SidebarChatsItem key={chat.id} name={chat.data.name}/>
+        <NavLink to={`/room/${chat.id}`} key={chat.id} >
+            <SidebarChatsItem name={chat.data.name}/>
+        </NavLink>
     ))
 
     return (
