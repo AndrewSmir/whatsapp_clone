@@ -5,7 +5,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const ChatHeader = (props) => {
 
-    const {roomName} = props
+    const {roomName, messages} = props
 
     const [randomNum, setRandomNum] = useState(null)
 
@@ -18,7 +18,7 @@ const ChatHeader = (props) => {
             <Avatar src={`https://avatars.dicebear.com/api/human/${randomNum}.svg`}/>
             <div className="chat__header__info">
                 <h3>{roomName}</h3>
-                <p>Last seen at ...</p>
+                <p>{messages[messages.length-1] ? `Last seen at ${new Date(messages[messages.length-1]?.timestamp?.toDate()).toLocaleTimeString()}` : ''}</p>
             </div>
             <div className="chat__header__right">
                 <IconButton>

@@ -184,13 +184,15 @@ code {
   font-size: 11px;
   top: -15px;
   left: 10px;
+  width: fit-content;
 }
 
 .chat__timestamp {
   position: absolute;
-  bottom: 5px;
-  right: 10px;
   font-size: xx-small;
+  width: 75px;
+  bottom: 3px;
+  right: -21px;
 }
 
 .chat__receiver {

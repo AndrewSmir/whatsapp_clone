@@ -5,9 +5,12 @@ import ChatIcon from "@material-ui/icons/Chat"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
 
 const SidebarHeader = props => {
+
+    const {userPhoto} = props
+
     return (
         <div className='sidebar__header'>
-            <Avatar/>
+            <Avatar src={userPhoto}/>
             <div className='sidebar__header__right'>
                 <IconButton>
                     <DonutLargeIcon/>

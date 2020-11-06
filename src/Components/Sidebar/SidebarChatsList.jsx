@@ -8,7 +8,7 @@ const SidebarChatsList = (props) => {
 
     const chatsList = props.chatsList.map(chat => (
         <NavLink to={`/room/${chat.id}`} key={chat.id} >
-            <SidebarChatsItem name={chat.data.name}/>
+            <SidebarChatsItem name={chat.data.name} id={chat.id}/>
         </NavLink>
     ))
 

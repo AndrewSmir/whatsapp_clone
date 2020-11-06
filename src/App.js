@@ -1,33 +1,43 @@
 import React, {useState} from 'react'
 import SidebarContainer from "./Components/Sidebar/SidebarContainer";
 import ChatContainer from "./Components/Chat/ChatContainer";
-import {Provider} from "react-redux";
-import store from "./redux/store";
-import {Route, BrowserRouter} from "react-router-dom";
-import Auth from "./Components/Auth/Auth";
-
-function App() {
-
-    const [user, setUser] = useState(null)
+import {Redirect, Route, BrowserRouter} from "react-router-dom";
+import Auth from "./Components/Auth/AuthContainer";
+import {connect} from "react-redux";
 
 
+function App(props) {
+
+    const {user} = props
 
     return (
-        <div className="App">
-            {!user ? (
-                <Auth/>
-            ) : (
-                <Provider store={store}>
-                    <BrowserRouter>
-                        <div className="wrapper">
-                            <Route path='/' render={() => <SidebarContainer/>}/>
-                            <Route exact path='/room/:roomId' render={() => <ChatContainer/>}/>
-                        </div>
-                    </BrowserRouter>
-                </Provider>
-            )}
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                {!user ? (
+                    <>
+                        <Auth/>
+                        <Redirect to='/'/>
+                    </>
+                ) : (
+                    <div className="wrapper">
+                        <Route path='/' render={() => <SidebarContainer/>}/>
+                        <Route exact path='/room/:roomId' render={() => <ChatContainer/>}/>
+                    </div>
+
+                )}
+            </div>
+        </BrowserRouter>
     );
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        user: state.authReducer.user
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

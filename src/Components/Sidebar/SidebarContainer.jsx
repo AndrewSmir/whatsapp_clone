@@ -6,7 +6,7 @@ import {addNewRoom, getChatsList} from "../../redux/chats-reducer";
 import {connect} from "react-redux";
 
 const SidebarContainer = (props) => {
-    const {getChatsList, ...restProps} = props
+    const {getChatsList, userPhoto, ...restProps} = props
 
     useEffect(()=>{
         getChatsList()
@@ -14,7 +14,7 @@ const SidebarContainer = (props) => {
 
     return (
         <div className='sidebar'>
-            <SidebarHeader/>
+            <SidebarHeader userPhoto={userPhoto}/>
             <SidebarSearch/>
             <SidebarChatsList {...restProps}/>
         </div>
@@ -23,7 +23,8 @@ const SidebarContainer = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        chatsList: state.chatsReducer.chatsList
+        chatsList: state.chatsReducer.chatsList,
+        userPhoto: state.authReducer.user.user.photoURL
     }
 }
 

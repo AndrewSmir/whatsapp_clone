@@ -1,11 +1,15 @@
 import React from 'react'
 
-const ChatBodyMessage = () => {
+const ChatBodyMessage = (props) => {
+
+    const {message, name, timestamp, userName} = props
+
+
     return (
-            <p className={`chat__message ${true && 'chat__receiver'}`}>
-                <span className="chat__name">Andrey</span>
-                Hello yo yo yo
-                <span className="chat__timestamp">3.52 pm</span>
+            <p className={`chat__message ${(name === userName) && 'chat__receiver'}`}>
+                <span className="chat__name">{name}</span>
+                {message}
+                <span className='chat__timestamp '>{new Date(timestamp?.toDate()).toLocaleTimeString()}</span>
             </p>
     )
 }
